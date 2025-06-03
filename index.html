@@ -3,107 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prem M | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Prem M | Business Analyst Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     :root {
-      --primary-color: #007acc;
-      --accent-color: #f97316;
-      --bg-color: #f9f9f9;
-      --text-color: #222;
-      --card-bg: #ffffff;
-      --header-bg: linear-gradient(to right, #007acc, #00c6ff);
+      --primary: #4f46e5;
+      --secondary: #f59e0b;
+      --dark-bg: #0f172a;
+      --light-bg: #f8fafc;
+      --text: #1e293b;
+      --white: #fff;
+      --card-shadow: rgba(0, 0, 0, 0.1);
     }
-    body {
+
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Inter', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      background-color: var(--light-bg);
+      color: var(--text);
+      line-height: 1.6;
     }
+
     header {
-      background: var(--header-bg);
-      padding: 2.5rem;
-      text-align: center;
-      color: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    header h1 {
-      margin: 0.2em 0;
-      font-size: 3rem;
-    }
-    nav a {
-      margin: 0 1.2rem;
-      text-decoration: none;
-      color: white;
-      font-weight: 600;
-      transition: border-bottom 0.3s;
-      font-size: 1.1rem;
-    }
-    nav a:hover {
-      border-bottom: 2px solid white;
-    }
-    section {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: var(--white);
       padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: var(--white);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
       max-width: 1100px;
       margin: auto;
+      padding: 3rem 2rem;
     }
-    .project {
-      background: var(--card-bg);
+
+    h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-left: 6px solid var(--secondary);
+      padding-left: 1rem;
+    }
+
+    .project, .certification, .resume, .contact {
+      background: var(--white);
+      border-radius: 12px;
       padding: 2rem;
-      margin-bottom: 2.5rem;
-      border-radius: 15px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease-in-out;
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 18px var(--card-shadow);
+      transition: transform 0.3s ease;
     }
+
     .project:hover {
       transform: translateY(-6px);
     }
+
     .project h3 {
-      margin-top: 0;
-      color: var(--accent-color);
-    }
-    a.button {
-      background: var(--primary-color);
-      color: white;
-      padding: 0.8rem 1.6rem;
-      border-radius: 6px;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 1rem;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-    a.button:hover {
-      background: #005f99;
-    }
-    #about p, #contact p {
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-    footer {
-      text-align: center;
-      padding: 2.5rem;
-      font-size: 1rem;
-      color: #666;
-      background-color: #f1f5f9;
-    }
-    ul.cert-list {
-      list-style: none;
-      padding-left: 0;
-      font-size: 1.05rem;
-    }
-    ul.cert-list li {
+      color: var(--secondary);
       margin-bottom: 0.5rem;
     }
-    ul.cert-list li ul {
-      margin-top: 0.3rem;
-      padding-left: 1.2rem;
+
+    .project p {
+      margin-bottom: 1rem;
     }
-    #contact p a {
-      color: var(--primary-color);
+
+    .button {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.75rem 1.5rem;
       text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background 0.3s;
     }
-    #contact p a:hover {
+
+    .button:hover {
+      background: #4338ca;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    footer {
+      text-align: center;
+      background-color: var(--dark-bg);
+      color: var(--white);
+      padding: 2rem;
+    }
+
+    .icon-link i {
+      margin-right: 0.5rem;
+    }
+
+    .resume a, .contact a {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--primary);
+    }
+
+    .resume a:hover, .contact a:hover {
       text-decoration: underline;
     }
   </style>
@@ -123,92 +155,60 @@
 
   <section id="about">
     <h2>About Me</h2>
-    <p>
-      I’m a results-oriented Business Analyst with 2 years of experience converting raw data into strategic business insights. Proficient in SQL, Python, Power BI, Tableau, statistics, and machine learning, I specialize in uncovering patterns that drive efficiency, optimize user experience, and support data-informed decision-making. I’m passionate about simplifying complexity—creating data solutions that resonate with both business stakeholders and technical teams.
-    </p>
+    <p>I’m a results-oriented Business Analyst with 2 years of experience turning raw data into strategic business insights. My expertise spans SQL, Python, Power BI, Tableau, and machine learning. I uncover patterns that optimize performance, improve user experience, and guide smart decision-making.</p>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
-
     <div class="project">
-      <h3>Automated Data Quality Monitoring Using SQL Server</h3>
-      <p><strong>Tech:</strong> SQL Server, T-SQL, Stored Procedures</p>
-      <p>Designed a smart SQL automation system that flagged data quality issues in real-time. Cut 80% of manual monitoring effort across business units.</p>
-      <a class="button" href="https://github.com/PremM2/data-automation" target="_blank">View on GitHub</a>
+      <h3>🛡️ Seller Fraud Detection Pipeline</h3>
+      <p><strong>Tools:</strong> SQL, Python, KMeans</p>
+      <p>Reduced ₹17L revenue fraud with a real-time fraud detection system. Cut investigation cycle by 50%.</p>
+      <a class="button" href="https://github.com/PremM2/mini-project" target="_blank">GitHub</a>
     </div>
-
     <div class="project">
-      <h3>Revenue Strategy Dashboard for Uber</h3>
-      <p><strong>Tech:</strong> SQL, Tableau/Power BI</p>
-      <p>Built a data dashboard that uncovered ₹25L in losses from poorly priced early morning rides, informing high-impact pricing strategy changes.</p>
-      <a class="button" href="https://github.com/PremM2/Uber-Revenue-Analysis-Strategic-Action-Plan" target="_blank">View on GitHub</a>
+      <h3>📊 Uber Revenue Dashboard</h3>
+      <p><strong>Tools:</strong> SQL, Tableau</p>
+      <p>Identified ₹25L in losses in early-morning rides. Informed high-impact pricing strategy.</p>
+      <a class="button" href="https://github.com/PremM2/Uber-Revenue-Analysis-Strategic-Action-Plan" target="_blank">GitHub</a>
     </div>
-
     <div class="project">
-      <h3>Flipkart Fashion Discount Analysis</h3>
-      <p><strong>Tech:</strong> SQL, Tableau/Power BI</p>
-      <p>Identified optimal discount sweet spot (40–45%) and prevented ₹2 Cr in revenue leakage. Segmented low-rated loss-making SKUs using clustering + A/B test recommendations.</p>
-      <a class="button" href="https://github.com/PremM2/Discount-Analysis-on-Flipkart-Fashion-Products" target="_blank">View on GitHub</a>
-    </div>
-
-    <div class="project">
-      <h3>CODE-X Indian Market Analysis</h3>
-      <p><strong>Tech:</strong> Power BI, Excel, DAX, Power Query</p>
-      <p>Enhanced dashboards for a leading F&B brand, improving visibility into sales trends. Projected 15% sales lift and 20% reduction in marketing spend via insights.</p>
-      <a class="button" href="https://github.com/PremM2/Discount-Analysis-on-Flipkart-Fashion-Products" target="_blank">View on GitHub</a>
-    </div>
-
-    <div class="project">
-      <h3>Supply Chain Performance Optimization</h3>
-      <p><strong>Tech:</strong> Power BI, Excel, DAX, Power Query</p>
-      <p>Built an end-to-end dashboard to analyze product availability, supplier efficiency, defect rates, and logistics performance. Identified 3+ overstocked SKUs, 2 high-risk routes, and 15% cost-saving opportunities through carrier optimization.</p>
-      <a class="button" href="https://github.com/PremM2/supply-chain" target="_blank">View on GitHub</a>
-    </div>
-
-    <div class="project">
-      <h3>Seller Fraud Detection Pipeline</h3>
-      <p><strong>Tech:</strong> SQL, Python, KMeans</p>
-      <p>Built a real-time fraud detection system that flagged suspicious sellers. Reduced revenue fraud risk by ₹17L with a 50% faster investigation cycle.</p>
-      <a class="button" href="https://github.com/PremM2/mini-project" target="_blank">View on GitHub</a>
+      <h3>🛍️ Flipkart Fashion Discount Analysis</h3>
+      <p><strong>Tools:</strong> SQL, Power BI</p>
+      <p>Identified ideal discount range (40–45%) and prevented ₹2 Cr revenue leakage. Used A/B testing & clustering.</p>
+      <a class="button" href="https://github.com/PremM2/Discount-Analysis-on-Flipkart-Fashion-Products" target="_blank">GitHub</a>
     </div>
   </section>
 
   <section id="certifications">
     <h2>Certifications</h2>
-    <ul class="cert-list">
-      <li>📘 Business Analyst – UpGrad, 2023</li>
-      <li>📊 Google Advanced Data Analytics – MedTourEasy, 2023</li>
-      <li>🗃️ MySQL for Data Analysis & BI – Udemy, 2023</li>
-      <li>🐼 Data Analysis with Pandas & Python – Udemy, 2023</li>
-      <li>📈 Power BI Workshop – Praggmatic, 2023</li>
-      <li>🧠 The Advanced SQL Course – Udemy, 2024</li>
-      <li>💡 SQL Practice – LeetCode (50 Problems), 2024</li>
-      <li>🎓 Advanced SQL Certificate – HackerRank, 2024</li>
-      <li>📊 Tableau: Hands-On Data Science – Udemy, 2025</li>
-      <li>🚀 Currently Enrolled:
-        <ul>
-          <li>Azure Databricks Spark SQL (Python)</li>
-          <li>The Alteryx Complete Masterclass</li>
-          <li>The Complete Course of AWS QuickSight</li>
-        </ul>
-      </li>
-    </ul>
+    <div class="certification">
+      <ul>
+        <li>🧠 Business Analyst – UpGrad</li>
+        <li>📈 Google Advanced Data Analytics</li>
+        <li>🐬 MySQL for Data Analysis & BI – Udemy</li>
+        <li>📊 Tableau & Power BI – Udemy, Praggmatic</li>
+        <li>🐍 Pandas & Python – Udemy</li>
+        <li>💡 Advanced SQL – Udemy, HackerRank</li>
+        <li>🏗️ LeetCode SQL (50+ problems)</li>
+        <li>🚀 Learning: Azure Databricks, Alteryx, AWS QuickSight</li>
+      </ul>
+    </div>
   </section>
 
-  <section id="resume">
+  <section id="resume" class="resume">
     <h2>Resume</h2>
-    <p>Download my latest resume below:</p>
+    <p>Click below to download my resume:</p>
     <a class="button" href="PREM M Data Scientist.pdf" download>Download Resume</a>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:premmurugan32@gmail.com">premmurugan32@gmail.com</a></p>
-    <p>Phone: <a href="tel:+917539909156">+91 75399 09156</a></p>
-    <p>GitHub: <a href="https://github.com/PremM2" target="_blank" rel="noopener noreferrer">PremM2</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/premmurugann" target="_blank" rel="noopener noreferrer">premmurugann</a></p>
-    <p>Location: Salem, Tamil Nadu, India</p>
+    <p><span class="icon-link"><i class="fas fa-envelope"></i></span> <a href="mailto:premmurugan32@gmail.com">premmurugan32@gmail.com</a></p>
+    <p><span class="icon-link"><i class="fas fa-phone"></i></span> <a href="tel:+917539909156">+91 75399 09156</a></p>
+    <p><span class="icon-link"><i class="fab fa-github"></i></span> <a href="https://github.com/PremM2" target="_blank">GitHub</a></p>
+    <p><span class="icon-link"><i class="fab fa-linkedin"></i></span> <a href="https://www.linkedin.com/in/premmurugann" target="_blank">LinkedIn</a></p>
+    <p><span class="icon-link"><i class="fas fa-map-marker-alt"></i></span> Salem, Tamil Nadu, India</p>
   </section>
 
   <footer>
