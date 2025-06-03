@@ -6,63 +6,98 @@
   <title>Prem M | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary-color: #007acc;
+      --accent-color: #f97316;
+      --bg-color: #f9f9f9;
+      --text-color: #222;
+      --card-bg: #ffffff;
+      --header-bg: linear-gradient(to right, #007acc, #00c6ff);
+    }
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #f9f9f9;
-      color: #222;
+      background-color: var(--bg-color);
+      color: var(--text-color);
     }
     header {
-      background: #ffffff;
+      background: var(--header-bg);
       padding: 2rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
       text-align: center;
+      color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     header h1 {
       margin: 0.2em 0;
+      font-size: 2.5rem;
     }
     nav a {
       margin: 0 1rem;
       text-decoration: none;
-      color: #007acc;
+      color: white;
       font-weight: 600;
+      transition: border-bottom 0.3s;
+    }
+    nav a:hover {
+      border-bottom: 2px solid white;
     }
     section {
       padding: 2rem;
-      max-width: 900px;
+      max-width: 960px;
       margin: auto;
     }
     .project {
-      background: #fff;
+      background: var(--card-bg);
       padding: 1.5rem;
       margin-bottom: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease-in-out;
+    }
+    .project:hover {
+      transform: translateY(-5px);
     }
     .project h3 {
       margin-top: 0;
+      color: var(--accent-color);
+    }
+    a.button {
+      background: var(--primary-color);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-weight: 600;
+    }
+    a.button:hover {
+      background: #005f99;
+    }
+    #about p {
+      font-size: 1.05rem;
+      line-height: 1.6;
     }
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
-      color: #888;
+      color: #666;
+      background-color: #f1f5f9;
     }
-    a.button {
-      background: #007acc;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
+    #contact p a {
+      color: var(--primary-color);
       text-decoration: none;
-      display: inline-block;
-      margin-top: 0.5rem;
+    }
+    #contact p a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Prem M</h1>
-    <p>Business Analyst</p>
+    <p>Business Analyst | Data Storyteller | Problem Solver</p>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
@@ -74,7 +109,8 @@
   <section id="about">
     <h2>About Me</h2>
     <p>
-      Analytical Business Analyst with 2 years of proven expertise in data analytics, automation, and driving performance improvements. Adept at leveraging SQL, Python, Power BI, and A/B testing to deliver actionable insights and data-driven solutions that enhance operational efficiency and elevate customer experiences. Passionate about transforming complex data into clear strategies that empower business growth and informed decision-making.</p>
+      I'm a results-driven Business Analyst with 2 years of experience transforming raw data into impactful business solutions. Skilled in SQL, Python, Power BI, and A/B testing, I uncover insights that drive efficiency, enhance user experience, and influence strategic decisions. My passion lies in turning complexity into clarity — building data products that speak to both business users and engineers alike.
+    </p>
   </section>
 
   <section id="projects">
@@ -83,35 +119,35 @@
     <div class="project">
       <h3>Automated Data Quality Monitoring Using SQL Server</h3>
       <p><strong>Tech:</strong> SQL Server, T-SQL, Stored Procedures</p>
-      <p>Built a reusable SQL framework to monitor data quality by validating duplicates, high spenders, and anomalies. Reduced manual effort by 80%.</p>
+      <p>Designed a smart SQL automation system that flagged data quality issues in real-time. Cut 80% of manual monitoring effort across business units.</p>
       <a class="button" href="https://github.com/PremM2/data-automation" target="_blank">View on GitHub</a>
     </div>
 
     <div class="project">
-      <h3>Revenue Analysis & Strategy Dashboard for Uber</h3>
+      <h3>Revenue Strategy Dashboard for Uber</h3>
       <p><strong>Tech:</strong> SQL, Tableau/Power BI</p>
-      <p>Analyzed revenue trends and developed strategy dashboards that identified losses and improvement opportunities in early morning rides and peak hours.</p>
+      <p>Built a data dashboard that uncovered ₹25L in losses from poorly priced early morning rides, informing high-impact pricing strategy changes.</p>
       <a class="button" href="https://github.com/PremM2/Uber-Revenue-Analysis-Strategic-Action-Plan" target="_blank">View on GitHub</a>
     </div>
 
-     <div class="project">
-      <h3>Discount Strategy Analysis for Flipkart Fashion</h3>
+    <div class="project">
+      <h3>Flipkart Fashion Discount Analysis</h3>
       <p><strong>Tech:</strong> SQL, Tableau/Power BI</p>
-      <p>Optimal discount range is 40–45% to maximize profitability and customer ratings, avoid excessive discounting causing ₹2 Crores revenue leakage, and apply data-driven targeted pricing with A/B testing for validation.</p>
+      <p>Identified optimal discount sweet spot (40–45%) and prevented ₹2 Cr in revenue leakage. Segmented low-rated loss-making SKUs using clustering + A/B test recommendations.</p>
       <a class="button" href="https://github.com/PremM2/Discount-Analysis-on-Flipkart-Fashion-Products" target="_blank">View on GitHub</a>
     </div>
 
     <div class="project">
-      <h3>CODE-X-Indian-Market-Analysis</h3>
-      <p><strong>Tech:</strong> SQL, Tableau/Power BI</p>
-      <p>Completed Code X marketing analysis for an Indian F&B company, improving Excel workbook clarity, using Power BI (DAX, Power Query) to build 5+ key dashboards, delivering insights that supported a 15% projected sales increase and 20% marketing cost optimization through targeted recommendations.</p>
+      <h3>CODE-X Indian Market Analysis</h3>
+      <p><strong>Tech:</strong> Power BI, Excel, DAX, Power Query</p>
+      <p>Enhanced dashboards for a leading F&B brand, improving visibility into sales trends. Projected 15% sales lift and 20% reduction in marketing spend via insights.</p>
       <a class="button" href="https://github.com/PremM2/Discount-Analysis-on-Flipkart-Fashion-Products" target="_blank">View on GitHub</a>
     </div>
 
     <div class="project">
-      <h3>Real-Time Seller Fraud Detection Pipeline</h3>
-      <p><strong>Tech:</strong> SQL, Python, K-Means</p>
-      <p>Developed a fraud detection system that flagged high-risk sellers and reduced audit lag by 50%, protecting ₹1.7M in revenue.</p>
+      <h3>Seller Fraud Detection Pipeline</h3>
+      <p><strong>Tech:</strong> SQL, Python, KMeans</p>
+      <p>Built a real-time fraud detection system that flagged suspicious sellers. Reduced revenue fraud risk by ₹17L with a 50% faster investigation cycle.</p>
       <a class="button" href="https://github.com/PremM2/mini-project" target="_blank">View on GitHub</a>
     </div>
   </section>
@@ -128,9 +164,8 @@
     <p>Phone: <a href="tel:+917539909156">+91 75399 09156</a></p>
     <p>GitHub: <a href="https://github.com/PremM2" target="_blank" rel="noopener noreferrer">PremM2</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/premmurugann" target="_blank" rel="noopener noreferrer">premmurugann</a></p>
-    <p>Location: Salem,Tamilnadu, India</p>
-</section>
-
+    <p>Location: Salem, Tamil Nadu, India</p>
+  </section>
 
   <footer>
     <p>&copy; 2025 Prem M. All rights reserved.</p>
