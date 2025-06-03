@@ -22,40 +22,41 @@
     }
     header {
       background: var(--header-bg);
-      padding: 2rem;
+      padding: 2.5rem;
       text-align: center;
       color: white;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     header h1 {
       margin: 0.2em 0;
-      font-size: 2.5rem;
+      font-size: 3rem;
     }
     nav a {
-      margin: 0 1rem;
+      margin: 0 1.2rem;
       text-decoration: none;
       color: white;
       font-weight: 600;
       transition: border-bottom 0.3s;
+      font-size: 1.1rem;
     }
     nav a:hover {
       border-bottom: 2px solid white;
     }
     section {
-      padding: 2rem;
-      max-width: 960px;
+      padding: 3rem 2rem;
+      max-width: 1100px;
       margin: auto;
     }
     .project {
       background: var(--card-bg);
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease-in-out;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease-in-out;
     }
     .project:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
     }
     .project h3 {
       margin-top: 0;
@@ -64,26 +65,39 @@
     a.button {
       background: var(--primary-color);
       color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 5px;
+      padding: 0.8rem 1.6rem;
+      border-radius: 6px;
       text-decoration: none;
       display: inline-block;
-      margin-top: 0.8rem;
+      margin-top: 1rem;
       font-weight: 600;
+      font-size: 1rem;
     }
     a.button:hover {
       background: #005f99;
     }
-    #about p {
-      font-size: 1.05rem;
-      line-height: 1.6;
+    #about p, #contact p {
+      font-size: 1.1rem;
+      line-height: 1.7;
     }
     footer {
       text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
+      padding: 2.5rem;
+      font-size: 1rem;
       color: #666;
       background-color: #f1f5f9;
+    }
+    ul.cert-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 1.05rem;
+    }
+    ul.cert-list li {
+      margin-bottom: 0.5rem;
+    }
+    ul.cert-list li ul {
+      margin-top: 0.3rem;
+      padding-left: 1.2rem;
     }
     #contact p a {
       color: var(--primary-color);
@@ -101,6 +115,7 @@
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
       <a href="#resume">Resume</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -109,7 +124,7 @@
   <section id="about">
     <h2>About Me</h2>
     <p>
-      I'm a results-driven Business Analyst with 2 years of experience transforming raw data into impactful business solutions. Skilled in SQL, Python, Power BI, and A/B testing, I uncover insights that drive efficiency, enhance user experience, and influence strategic decisions. My passion lies in turning complexity into clarity — building data products that speak to both business users and engineers alike.
+      I’m a results-oriented Business Analyst with 2 years of experience converting raw data into strategic business insights. Proficient in SQL, Python, Power BI, Tableau, statistics, and machine learning, I specialize in uncovering patterns that drive efficiency, optimize user experience, and support data-informed decision-making. I’m passionate about simplifying complexity—creating data solutions that resonate with both business stakeholders and technical teams.
     </p>
   </section>
 
@@ -145,33 +160,41 @@
     </div>
 
     <div class="project">
+      <h3>Supply Chain Performance Optimization</h3>
+      <p><strong>Tech:</strong> Power BI, Excel, DAX, Power Query</p>
+      <p>Built an end-to-end dashboard to analyze product availability, supplier efficiency, defect rates, and logistics performance. Identified 3+ overstocked SKUs, 2 high-risk routes, and 15% cost-saving opportunities through carrier optimization.</p>
+      <a class="button" href="https://github.com/PremM2/supply-chain" target="_blank">View on GitHub</a>
+    </div>
+
+    <div class="project">
       <h3>Seller Fraud Detection Pipeline</h3>
       <p><strong>Tech:</strong> SQL, Python, KMeans</p>
       <p>Built a real-time fraud detection system that flagged suspicious sellers. Reduced revenue fraud risk by ₹17L with a 50% faster investigation cycle.</p>
       <a class="button" href="https://github.com/PremM2/mini-project" target="_blank">View on GitHub</a>
     </div>
   </section>
-<section id="certifications">
-  <h2>Certifications</h2>
-  <ul style="list-style: none; padding: 0;">
-    <li>📘 Business Analyst – UpGrad, 2023</li>
-    <li>📊 Google Advanced Data Analytics – MedTourEasy, 2023</li>
-    <li>🗃️ MySQL for Data Analysis & BI – Udemy, 2023</li>
-    <li>🐼 Data Analysis with Pandas & Python – Udemy, 2023</li>
-    <li>📈 Power BI Workshop – Praggmatic, 2023</li>
-    <li>🧠 The Advanced SQL Course – Udemy, 2024</li>
-    <li>💡 SQL Practice – LeetCode (50 Problems), 2024</li>
-    <li>🎓 Advanced SQL Certificate – HackerRank, 2024</li>
-    <li>📊 Tableau: Hands-On Data Science – Udemy, 2025</li>
-    <li>🚀 Currently Enrolled:
-      <ul style="margin-top: 0.5rem;">
-        <li>Azure Databricks Spark SQL (Python)</li>
-        <li>The Alteryx Complete Masterclass</li>
-        <li>The Complete Course of AWS QuickSight</li>
-      </ul>
-    </li>
-  </ul>
-</section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <ul class="cert-list">
+      <li>📘 Business Analyst – UpGrad, 2023</li>
+      <li>📊 Google Advanced Data Analytics – MedTourEasy, 2023</li>
+      <li>🗃️ MySQL for Data Analysis & BI – Udemy, 2023</li>
+      <li>🐼 Data Analysis with Pandas & Python – Udemy, 2023</li>
+      <li>📈 Power BI Workshop – Praggmatic, 2023</li>
+      <li>🧠 The Advanced SQL Course – Udemy, 2024</li>
+      <li>💡 SQL Practice – LeetCode (50 Problems), 2024</li>
+      <li>🎓 Advanced SQL Certificate – HackerRank, 2024</li>
+      <li>📊 Tableau: Hands-On Data Science – Udemy, 2025</li>
+      <li>🚀 Currently Enrolled:
+        <ul>
+          <li>Azure Databricks Spark SQL (Python)</li>
+          <li>The Alteryx Complete Masterclass</li>
+          <li>The Complete Course of AWS QuickSight</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
 
   <section id="resume">
     <h2>Resume</h2>
