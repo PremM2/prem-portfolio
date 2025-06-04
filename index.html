@@ -312,46 +312,86 @@
   <footer>
     <p>&copy; 2025 Prem M. All rights reserved.</p>
   </footer>
-<!-- Add this near the end of body -->
-<button id="chatBtn" style="position: fixed; bottom: 20px; right: 20px; background: var(--primary); color: white; border:none; padding:10px 15px; border-radius: 50%; cursor:pointer;">💬</button>
-
-<div id="chatBox" style="display:none; position: fixed; bottom: 70px; right: 20px; width: 300px; max-height: 400px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); overflow-y: auto; padding: 10px; font-family: 'Inter', sans-serif;">
-  <div id="chatContent" style="font-size: 0.9rem; color: #333;">
-    <p><b>Hi! I’m Prem’s assistant. Ask me about his skills or projects!</b></p>
-  </div>
-  <input type="text" id="userInput" placeholder="Type your question..." style="width: 100%; padding: 8px; margin-top: 8px; border-radius: 6px; border: 1px solid #ccc;">
-</div>
+<section id="chatbot" style="max-width: 400px; margin: 2rem auto; background:#fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); padding: 1rem;">
+  <h2 style="color: var(--primary); text-align: center;">Ask Me Anything!</h2>
+  <div id="chatContent" style="height: 300px; overflow-y: auto; border: 1px solid #ddd; padding: 1rem; border-radius: 8px; background:#fafafa;"></div>
+  <input id="userInput" type="text" placeholder="Type your question..." style="width: 100%; padding: 0.5rem; margin-top: 1rem; border-radius: 8px; border: 1px solid #ccc;" />
+</section>
 
 <script>
-  const chatBtn = document.getElementById('chatBtn');
-  const chatBox = document.getElementById('chatBox');
   const chatContent = document.getElementById('chatContent');
   const userInput = document.getElementById('userInput');
 
-  chatBtn.onclick = () => {
-    chatBox.style.display = chatBox.style.display === 'none' ? 'block' : 'none';
+  const responses = {
+    skills: "Prem is skilled in SQL, Python, Power BI, Tableau, and machine learning.",
+    projects: "Prem has built dashboards for Uber revenue, Flipkart discount analysis, automated data quality monitoring, and more.",
+    contact: "You can email Prem at premmurugan32@gmail.com or find him on GitHub (https://github.com/PremM2) and LinkedIn (https://linkedin.com/in/premmurugann).",
+    hello: "Hi! How can I assist you about Prem's profile today?",
+    resume: "You can download Prem's resume from the Resume section above.",
+    default: "Sorry, I didn't quite catch that. Please ask me about Prem's skills, projects, contact info, or resume."
   };
 
-  userInput.addEventListener('keypress', function(e) {
-    if(e.key === 'Enter') {
-      const question = userInput.value.toLowerCase();
-      let answer = "Sorry, I don't understand. Please ask about Prem's skills or projects.";
-      
-      if(question.includes('skills')) {
-        answer = "Prem is skilled in SQL, Python, Power BI, Tableau, and machine learning.";
-      } else if(question.includes('projects')) {
-        answer = "Prem has built dashboards for Uber revenue, Flipkart discount analysis, and automated data quality monitoring.";
-      } else if(question.includes('contact')) {
-        answer = "You can email Prem at premmurugan32@gmail.com or find him on GitHub or LinkedIn.";
-      }
+  function addMessage(text, sender='bot') {
+    const p = document.createElement('p');
+    p.textContent = (sender === 'user' ? 'You: ' : 'Bot: ') + text;
+    p.style.margin = '8px 0';
+    p.style.padding = '8px 12px';
+    p.style.borderRadius = '15px';
+    p.style.maxWidth = '80%';
+    p.style.wordWrap = 'break-word';
 
-      chatContent.innerHTML += `<p><b>You:</b> ${userInput.value}</p>`;
-      chatContent.innerHTML += `<p><b>Bot:</b> ${answer}</p>`;
+    if (sender === 'user') {
+      p.style.backgroundColor = '#cce4ff';
+      p.style.color = '#004080';
+      p.style.textAlign = 'right';
+      p.style.marginLeft = 'auto';
+    } else {
+      p.style.backgroundColor = '#f0f0f0';
+      p.style.color = '#333';
+      p.style.textAlign = 'left';
+      p.style.marginRight = 'auto';
+    }
+    chatContent.appendChild(p);
+    chatContent.scrollTop = chatContent.scrollHeight;
+  }
+
+  userInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter' && userInput.value.trim() !== '') {
+      const question = userInput.value.trim().toLowerCase();
+      addMessage(userInput.value, 'user');
+
+      // Show typing indicator
+      const typingIndicator = document.createElement('p');
+      typingIndicator.textContent = "Bot is typing...";
+      typingIndicator.style.fontStyle = 'italic';
+      typingIndicator.style.color = '#666';
+      chatContent.appendChild(typingIndicator);
       chatContent.scrollTop = chatContent.scrollHeight;
+
+      setTimeout(() => {
+        chatContent.removeChild(typingIndicator);
+
+        let answer = responses.default;
+        if (/skills|expertise|tech|technology|tools/.test(question)) {
+          answer = responses.skills;
+        } else if (/project|work|portfolio/.test(question)) {
+          answer = responses.projects;
+        } else if (/contact|email|phone|linkedin|github/.test(question)) {
+          answer = responses.contact;
+        } else if (/hello|hi|hey/.test(question)) {
+          answer = responses.hello;
+        } else if (/resume|cv/.test(question)) {
+          answer = responses.resume;
+        }
+
+        addMessage(answer);
+      }, 1000);
+
       userInput.value = '';
     }
   });
 </script>
+
 
 </body>
 </html>
