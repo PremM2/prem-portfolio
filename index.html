@@ -312,6 +312,46 @@
   <footer>
     <p>&copy; 2025 Prem M. All rights reserved.</p>
   </footer>
+<!-- Add this near the end of body -->
+<button id="chatBtn" style="position: fixed; bottom: 20px; right: 20px; background: var(--primary); color: white; border:none; padding:10px 15px; border-radius: 50%; cursor:pointer;">💬</button>
+
+<div id="chatBox" style="display:none; position: fixed; bottom: 70px; right: 20px; width: 300px; max-height: 400px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); overflow-y: auto; padding: 10px; font-family: 'Inter', sans-serif;">
+  <div id="chatContent" style="font-size: 0.9rem; color: #333;">
+    <p><b>Hi! I’m Prem’s assistant. Ask me about his skills or projects!</b></p>
+  </div>
+  <input type="text" id="userInput" placeholder="Type your question..." style="width: 100%; padding: 8px; margin-top: 8px; border-radius: 6px; border: 1px solid #ccc;">
+</div>
+
+<script>
+  const chatBtn = document.getElementById('chatBtn');
+  const chatBox = document.getElementById('chatBox');
+  const chatContent = document.getElementById('chatContent');
+  const userInput = document.getElementById('userInput');
+
+  chatBtn.onclick = () => {
+    chatBox.style.display = chatBox.style.display === 'none' ? 'block' : 'none';
+  };
+
+  userInput.addEventListener('keypress', function(e) {
+    if(e.key === 'Enter') {
+      const question = userInput.value.toLowerCase();
+      let answer = "Sorry, I don't understand. Please ask about Prem's skills or projects.";
+      
+      if(question.includes('skills')) {
+        answer = "Prem is skilled in SQL, Python, Power BI, Tableau, and machine learning.";
+      } else if(question.includes('projects')) {
+        answer = "Prem has built dashboards for Uber revenue, Flipkart discount analysis, and automated data quality monitoring.";
+      } else if(question.includes('contact')) {
+        answer = "You can email Prem at premmurugan32@gmail.com or find him on GitHub or LinkedIn.";
+      }
+
+      chatContent.innerHTML += `<p><b>You:</b> ${userInput.value}</p>`;
+      chatContent.innerHTML += `<p><b>Bot:</b> ${answer}</p>`;
+      chatContent.scrollTop = chatContent.scrollHeight;
+      userInput.value = '';
+    }
+  });
+</script>
 
 </body>
 </html>
