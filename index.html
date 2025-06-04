@@ -318,79 +318,152 @@
   <input id="userInput" type="text" placeholder="Type your question..." style="width: 100%; padding: 0.5rem; margin-top: 1rem; border-radius: 8px; border: 1px solid #ccc;" />
 </section>
 
+<!-- Chatbot UI -->
+<div id="chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 360px; max-height: 450px; background: white; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); font-family: 'Inter', sans-serif; display: flex; flex-direction: column; z-index: 9999;">
+  <div id="chat-header" style="background: #6366f1; color: white; padding: 14px 16px; font-weight: 600; border-radius: 12px 12px 0 0; font-size: 16px;">
+    Prem's Assistant
+  </div>
+  <div id="chat-messages" style="flex: 1; padding: 12px 16px; overflow-y: auto; font-size: 14px; color: #222;"></div>
+  <form id="chat-form" style="display: flex; border-top: 1px solid #ddd;">
+    <input type="text" id="chat-input" placeholder="Ask about Prem's skills, projects, experience..." style="flex: 1; padding: 12px 14px; border:none; outline:none; font-size: 14px; border-radius: 0 0 0 12px;" autocomplete="off" />
+    <button type="submit" style="background: #6366f1; color: white; border: none; padding: 0 18px; cursor: pointer; font-weight: 600; border-radius: 0 0 12px 0;">Send</button>
+  </form>
+</div>
+
 <script>
-  const chatContent = document.getElementById('chatContent');
-  const userInput = document.getElementById('userInput');
+  (function() {
+    const chatForm = document.getElementById('chat-form');
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.getElementById('chat-messages');
 
-  const responses = {
-    skills: "Prem is skilled in SQL, Python, Power BI, Tableau, and machine learning.",
-    projects: "Prem has built dashboards for Uber revenue, Flipkart discount analysis, automated data quality monitoring, and more.",
-    contact: "You can email Prem at premmurugan32@gmail.com or find him on GitHub (https://github.com/PremM2) and LinkedIn (https://linkedin.com/in/premmurugann).",
-    hello: "Hi! How can I assist you about Prem's profile today?",
-    resume: "You can download Prem's resume from the Resume section above.",
-    default: "Sorry, I didn't quite catch that. Please ask me about Prem's skills, projects, contact info, or resume."
-  };
+    // Expanded knowledge base for hiring manager style questions
+    const knowledgeBase = [
+      {
+        keywords: ['skill', 'technology', 'tech stack', 'tools', 'languages', 'software', 'programming'],
+        answer: "Prem is skilled in SQL, Python, Power BI, Tableau, machine learning, data visualization, and ETL pipelines. He is proficient with tools such as Git, GitHub, Jupyter, Pandas, and NumPy."
+      },
+      {
+        keywords: ['experience', 'background', 'work', 'years', 'professional history'],
+        answer: "Prem has 2 years of professional experience working as a Business Analyst, with a focus on data-driven fraud detection, dashboard creation, and automating reporting processes."
+      },
+      {
+        keywords: ['project', 'projects', 'work sample', 'portfolio', 'case study', 'demo'],
+        answer: "Prem has successfully executed projects like an Automated Data Quality Monitoring System using SQL, Revenue Strategy Dashboards for Uber, Flipkart Fashion Discount Analysis, and a Seller Fraud Detection Pipeline."
+      },
+      {
+        keywords: ['education', 'degree', 'qualification', 'university', 'academics'],
+        answer: "Prem holds a Bachelor of Science degree in Agriculture from Karunya University, graduating in 2021."
+      },
+      {
+        keywords: ['contact', 'email', 'phone', 'linkedin', 'github', 'reach out'],
+        answer: "You can contact Prem at premmurugan32@gmail.com or by phone at +91 75399 09156. His LinkedIn and GitHub profiles are linked in his portfolio website."
+      },
+      {
+        keywords: ['strength', 'strengths', 'strength areas', 'qualities', 'attributes'],
+        answer: "Prem is recognized for his analytical mindset, problem-solving skills, attention to detail, and ability to translate complex data into actionable business insights."
+      },
+      {
+        keywords: ['certification', 'certificate', 'course', 'training', 'qualification'],
+        answer: "Prem holds certifications including a Business Analyst certification from UpGrad, Google Advanced Data Analytics, Advanced SQL certification, and has completed multiple courses on Tableau, Power BI, MySQL, and Python."
+      },
+      {
+        keywords: ['fraud', 'fraud detection', 'risk', 'risk management', 'anti-fraud'],
+        answer: "Prem developed a real-time Seller Fraud Detection Pipeline that decreased revenue fraud risk by ₹17 Lakhs and accelerated investigation time by 50%."
+      },
+      {
+        keywords: ['automation', 'automate', 'automation'],
+        answer: "Prem has automated data quality monitoring and reporting processes, which improved efficiency and reduced manual errors."
+      },
+      {
+        keywords: ['team', 'collaboration', 'stakeholders', 'communication', 'work with others'],
+        answer: "Prem effectively collaborates with cross-functional teams and stakeholders, ensuring smooth communication and delivering data insights aligned with business goals."
+      },
+      {
+        keywords: ['leadership', 'lead', 'manage', 'handle', 'mentor'],
+        answer: "While Prem primarily works as an individual contributor, he takes initiative in mentoring juniors and driving project ownership."
+      },
+      {
+        keywords: ['challenges', 'problems', 'difficulties', 'obstacles'],
+        answer: "Prem tackles challenges by applying structured problem-solving techniques and leveraging data to guide decision-making and risk mitigation."
+      },
+      {
+        keywords: ['communication', 'present', 'report', 'dashboard', 'visualization'],
+        answer: "Prem excels at creating intuitive dashboards and reports using Tableau and Power BI, making complex data easy to understand for business teams."
+      },
+      {
+        keywords: ['improvement', 'impact', 'result', 'achievement', 'success'],
+        answer: "Prem's work has led to significant improvements in fraud detection speed, accuracy of data reports, and operational efficiencies, directly impacting revenue protection."
+      },
+      {
+        keywords: ['salary', 'expected compensation', 'pay', 'package'],
+        answer: "Prem is seeking a competitive salary in line with market standards and his experience, typically starting around 9.3 LPA."
+      },
+      {
+        keywords: ['resume', 'cv', 'download', 'get resume'],
+        answer: "Prem's resume is available for download from the portfolio website under the 'Resume' section."
+      },
+      {
+        keywords: ['work environment', 'culture', 'fit', 'values'],
+        answer: "Prem values a collaborative, data-driven work culture that encourages continuous learning and innovation."
+      },
+      {
+        keywords: ['languages', 'spoken', 'communication skills'],
+        answer: "Prem is fluent in English and Tamil, and has basic conversational skills in Telugu."
+      },
+      {
+        keywords: ['hobbies', 'interests', 'extra-curricular'],
+        answer: "Prem enjoys problem-solving, data storytelling, and continuously upgrading his technical skills through courses and projects."
+      },
+      {
+        keywords: ['availability', 'join', 'notice period', 'start date'],
+        answer: "Prem is available to join immediately or with a short notice period, depending on the employer's requirements."
+      },
+      {
+        keywords: ['help', 'support', 'what can you do', 'assist'],
+        answer: "I am Prem's assistant bot! Ask me anything about his skills, experience, projects, certifications, or contact information."
+      }
+    ];
 
-  function addMessage(text, sender='bot') {
-    const p = document.createElement('p');
-    p.textContent = (sender === 'user' ? 'You: ' : 'Bot: ') + text;
-    p.style.margin = '8px 0';
-    p.style.padding = '8px 12px';
-    p.style.borderRadius = '15px';
-    p.style.maxWidth = '80%';
-    p.style.wordWrap = 'break-word';
-
-    if (sender === 'user') {
-      p.style.backgroundColor = '#cce4ff';
-      p.style.color = '#004080';
-      p.style.textAlign = 'right';
-      p.style.marginLeft = 'auto';
-    } else {
-      p.style.backgroundColor = '#f0f0f0';
-      p.style.color = '#333';
-      p.style.textAlign = 'left';
-      p.style.marginRight = 'auto';
+    function addMessage(text, fromUser = true) {
+      const msgDiv = document.createElement('div');
+      msgDiv.style.marginBottom = '12px';
+      msgDiv.style.textAlign = fromUser ? 'right' : 'left';
+      msgDiv.style.fontWeight = fromUser ? '600' : '400';
+      msgDiv.style.color = fromUser ? '#6366f1' : '#222';
+      msgDiv.style.wordWrap = 'break-word';
+      msgDiv.textContent = text;
+      chatMessages.appendChild(msgDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
     }
-    chatContent.appendChild(p);
-    chatContent.scrollTop = chatContent.scrollHeight;
-  }
 
-  userInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter' && userInput.value.trim() !== '') {
-      const question = userInput.value.trim().toLowerCase();
-      addMessage(userInput.value, 'user');
-
-      // Show typing indicator
-      const typingIndicator = document.createElement('p');
-      typingIndicator.textContent = "Bot is typing...";
-      typingIndicator.style.fontStyle = 'italic';
-      typingIndicator.style.color = '#666';
-      chatContent.appendChild(typingIndicator);
-      chatContent.scrollTop = chatContent.scrollHeight;
-
-      setTimeout(() => {
-        chatContent.removeChild(typingIndicator);
-
-        let answer = responses.default;
-        if (/skills|expertise|tech|technology|tools/.test(question)) {
-          answer = responses.skills;
-        } else if (/project|work|portfolio/.test(question)) {
-          answer = responses.projects;
-        } else if (/contact|email|phone|linkedin|github/.test(question)) {
-          answer = responses.contact;
-        } else if (/hello|hi|hey/.test(question)) {
-          answer = responses.hello;
-        } else if (/resume|cv/.test(question)) {
-          answer = responses.resume;
+    function findAnswer(question) {
+      const q = question.toLowerCase();
+      for (const item of knowledgeBase) {
+        for (const keyword of item.keywords) {
+          if (q.includes(keyword)) {
+            return item.answer;
+          }
         }
-
-        addMessage(answer);
-      }, 1000);
-
-      userInput.value = '';
+      }
+      return "Sorry, I don't have information on that topic yet. Please ask about Prem's skills, projects, experience, or contact details.";
     }
-  });
+
+    chatForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const userInput = chatInput.value.trim();
+      if (!userInput) return;
+
+      addMessage(userInput, true); // User message
+
+      const botReply = findAnswer(userInput);
+      setTimeout(() => addMessage(botReply, false), 600); // Bot reply with slight delay
+
+      chatInput.value = '';
+    });
+
+  })();
 </script>
+
 
 
 </body>
