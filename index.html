@@ -1,38 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prem M | Business Analyst Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prem M | Business Analyst</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <meta name="description" content="Business Analyst Portfolio of Prem M showcasing projects in SQL, Python, Power BI, Tableau and more." />
-  <meta name="author" content="Prem M" />
   <style>
-    .button-light {
-  display: inline-block;
-  background: #f3f4f6;
-  color: #1f2937;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.3s;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-.button-light:hover {
-  background: #e5e7eb;
-}
-
     :root {
-      --primary: #6366f1;
-      --secondary: #f59e0b;
-      --bg-gradient: linear-gradient(135deg, #6366f1, #ec4899);
-      --dark: #0f172a;
-      --light: #f9fafb;
-      --text: #1f2937;
-      --white: #ffffff;
+      --bg: #121212;
+      --card: #1e1e1e;
+      --text: #f1f1f1;
+      --accent: #facc15;
+      --muted: #b3b3b3;
     }
 
     * {
@@ -43,521 +23,164 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--bg-gradient);
+      background-color: var(--bg);
       color: var(--text);
-      overflow-x: hidden;
+      display: flex;
+      min-height: 100vh;
     }
 
-    /* --- Intro Screen --- */
-    #intro {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background-color: #0f172a;
-      color: white;
+    aside {
+      background: var(--card);
+      width: 300px;
+      padding: 2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      animation: fadeOut 1s ease 3s forwards;
+      border-right: 1px solid #333;
     }
 
-    #intro h1 {
-      font-size: 3rem;
-      animation: fadeInUp 1s ease-in-out;
-    }
-
-    #intro p {
-      font-size: 1.5rem;
-      margin-top: 1rem;
-      animation: fadeInUp 1.5s ease-in-out;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeOut {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-
-    header {
-      background: var(--dark);
-      color: var(--white);
-      text-align: center;
-      padding: 4rem 2rem;
-    }
-
-    header h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-    }
-
-    header p {
-      font-size: 1.25rem;
-      margin-top: 1rem;
-    }
-
-    nav {
-      margin-top: 1.5rem;
-    }
-
-    nav a {
-      color: var(--white);
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: var(--secondary);
-    }
-
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 4rem 2rem;
-      background: var(--white);
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      margin-bottom: 3rem;
-      text-align: center;
-    }
-
-    h2 {
-      font-size: 2rem;
-      color: var(--primary);
+    aside img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
       margin-bottom: 1rem;
     }
 
-    .project, .certification, .resume, .contact {
+    aside h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    aside p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    aside a.button {
+      background: var(--accent);
+      color: #000;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
       margin-bottom: 2rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    section {
+      background: var(--card);
       padding: 2rem;
       border-radius: 12px;
-      background: #f1f5f9;
-      transition: transform 0.3s;
+      margin-bottom: 2rem;
     }
 
-    .project:hover {
-      transform: scale(1.03);
-    }
-
-    .project h3 {
-      color: var(--secondary);
+    h2 {
       font-size: 1.5rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
     }
 
-    .button {
+    .chip {
       display: inline-block;
-      background: var(--primary);
-      color: var(--white);
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background 0.3s;
+      background: #2d2d2d;
+      color: var(--text);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      margin: 0.2rem;
+      font-size: 0.85rem;
     }
 
-    .button:hover {
-      background: #4f46e5;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    ul li::before {
-      content: "*";
-    }
-
-    footer {
-      background-color: var(--dark);
-      color: var(--white);
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .icon-link i {
-      margin-right: 0.5rem;
-    }
-
-    .resume a, .contact a {
-      display: inline-block;
-      margin-top: 1rem;
-      color: var(--primary);
-    }
-
-    .resume a:hover, .contact a:hover {
-      text-decoration: underline;
+    .project {
+      margin-bottom: 1.5rem;
     }
   </style>
 </head>
-
 <body>
+  <aside>
+    <img src="profile.jpg" alt="Prem M">
+    <h2>Prem M</h2>
+    <p>Business Analyst</p>
+    <p>📧 premmurugan32@gmail.com</p>
+    <p>📞 +91 75399 09156</p>
+    <a class="button" href="PREM%20M%20Data%20Scientist.pdf" download>Download CV</a>
+  </aside>
 
-  <!-- Intro Screen -->
-  <div id="intro" aria-hidden="true">
-    <h1>Hi there, I'm Prem</h1>
-    <p>Business Analyst | Data Storyteller | Problem Solver</p>
-  </div>
-
-  <!-- Main Content -->
-  <header>
-    <h1>Prem M</h1>
-    <p>Business Analyst | Data Storyteller | Problem Solver</p>
+  <main>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#certifications">Certifications</a>
-      <a href="#resume">Resume</a>
+      <a href="#involvement">Involvement</a>
       <a href="#contact">Contact</a>
     </nav>
-  </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I’m a results-oriented Business Analyst with 2 years of experience turning raw data into strategic business insights. My expertise spans SQL, Python, Power BI, Tableau, and machine learning. I uncover patterns that optimize performance, improve user experience, and guide smart decision-making.</p>
-  </section>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Results-oriented Business Analyst with 2 years of experience turning raw data into strategic insights. Proficient in SQL, Python, Power BI, Tableau, and machine learning. Experienced in uncovering patterns to improve performance and decision-making.</p>
+    </section>
 
-  <section id="techstack">
-  <h2>Tech Stack</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem;">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" width="50" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" width="50" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS QuickSight" title="AWS QuickSight" width="50" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powerbi/powerbi-original.svg" alt="Power BI" width="50" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tableau/tableau-original.svg" alt="Tableau" width="50" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="50" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter" width="50" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas" width="50" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikit-learn/scikit-learn-original.svg" alt="Scikit-learn" width="50" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="Excel" width="50" />
-  </div>
-</section>
-  <section id="sql-dialects">
-  <h2>SQL Dialect Proficiency</h2>
-  <p>
-    I’ve worked with multiple SQL engines and am proficient in adapting queries across different syntaxes and functions:
-  </p>
-  <ul>
-    <li> MySQL</li>
-    <li> PostgreSQL</li>
-    <li> Microsoft SQL Server (T-SQL)</li>
-    <li> Oracle SQL</li>
-  </ul>
-  <p>Comfortable switching across platforms and optimizing queries for performance and compatibility.</p>
-</section>
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project">
+        <strong>Revenue Strategy Dashboard for Uber</strong><br>
+        SQL, Power BI – Identified ₹25L in pricing losses via dashboard insights.
+      </div>
+      <div class="project">
+        <strong>Seller Fraud Detection Pipeline</strong><br>
+        SQL, Python – Reduced revenue fraud by ₹17L using clustering.
+      </div>
+      <div class="project">
+        <strong>Flipkart Fashion Discount Analysis</strong><br>
+        Tableau – Found ₹2 Cr leakage and optimal discount range.
+      </div>
+    </section>
 
-
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <!-- Repeatable Project Cards -->
-    <div class="project">
-  <h3>Advanced SQL Challenge Solving</h3>
-  <p><strong>Platforms:</strong> LeetCode, DataLemur, DataFord, Scratch4Scratch, HackerRank</p>
-  <p>Solved 150+ SQL problems across real-world domains such as fraud analytics, session tracking, customer behavior, and revenue leakage. Applied advanced SQL techniques including window functions, CTEs, conditional aggregation, and time-based analysis.</p>
-  <ul>
-    <li>60+ problems marked as "Hard" — including behavioral segmentation and A/B testing logic</li>
-    <li>Used PostgreSQL and SQL Server for testing across platforms</li>
-    <li>Documented solutions with performance-optimized queries and clean formatting</li>
-  </ul>
-   <a class="button" href="https://www.linkedin.com/posts/premmurugann_sql-advancedsql-dataanalytics-activity-7338920597235650562-iom1?utm_source=share&utm_medium=member_desktop&rcm=ACoAADs3BkwB0JuuhxWF1x8YpwUbZhTIg6T_8-M">View on Linkedin</a>
-    </div>
-    <div class="project">
-</div>
- <div class="project">
-      <h3>Automated Data Quality Monitoring Using SQL Server</h3>
-      <p><strong>Tech:</strong> SQL Server, T-SQL, Stored Procedures</p>
-      <p>Designed a smart SQL automation system that flagged data quality issues in real-time. Cut 80% of manual monitoring effort across business units.</p>
-      <a class="button" href="https://github.com/PremM2/data-automation">View on GitHub</a>
-    </div>
-    <div class="project">
-      <h3>Revenue Strategy Dashboard for Uber</h3>
-      <p><strong>Tech:</strong> SQL, Tableau/Power BI</p>
-      <p>Built a data dashboard that uncovered ₹25L in losses from poorly priced early morning rides, informing high-impact pricing strategy changes.</p>
-      <a class="button" href="https://github.com/PremM2/Uber-Revenue-Analysis-Strategic-Action-Plan" target="_blank">View on GitHub</a>
-    </div>
-    <div class="project">
-      <h3>Flipkart Fashion Discount Analysis</h3>
-      <p><strong>Tech:</strong> SQL, Tableau/Power BI</p>
-      <p>Identified optimal discount sweet spot (40–45%) and prevented ₹2 Cr in revenue leakage. Segmented low-rated loss-making SKUs using clustering + A/B test recommendations.</p>
-      <a class="button" href="https://github.com/PremM2/Discount-Analysis-on-Flipkart-Fashion-Products" target="_blank">View on GitHub</a>
-    </div>
-    <div class="project">
-      <h3>CODE-X Indian Market Analysis</h3>
-      <p><strong>Tech:</strong> Power BI, Excel, DAX, Power Query</p>
-      <p>Enhanced dashboards for a leading F&B brand, improving visibility into sales trends. Projected 15% sales lift and 20% reduction in marketing spend via insights.</p>
-      <a class="button" href="https://github.com/PremM2/Indian-Market-Analysis" target="_blank">View on GitHub</a>
-    </div>
-    <div class="project">
-      <h3>Supply Chain Performance Optimization</h3>
-      <p><strong>Tech:</strong> Power BI, Excel, DAX, Power Query</p>
-      <p>Built a dashboard to analyze product availability, supplier efficiency, defect rates, and logistics. Identified 3+ overstocked SKUs and 15% cost-saving opportunities.</p>
-      <a class="button" href="https://github.com/PremM2/supply-chain" target="_blank">View on GitHub</a>
-    </div>
-    <div class="project">
-      <h3>Seller Fraud Detection Pipeline</h3>
-      <p><strong>Tech:</strong> SQL, Python, KMeans</p>
-      <p>Built a real-time fraud detection system that flagged suspicious sellers. Reduced revenue fraud risk by ₹17L with a 50% faster investigation cycle.</p>
-      <a class="button" href="https://github.com/PremM2/mini-project" target="_blank">View on GitHub</a>
-    </div>
-  </section>
-
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <div class="certification">
+    <section id="certifications">
+      <h2>Certifications</h2>
       <ul>
         <li>Business Analyst – UpGrad</li>
         <li>Google Advanced Data Analytics</li>
-        <li>Amazon QuickSight 2025 - Udemy</li>
-        <li>MySQL for Data Analysis & BI – Udemy</li>
-        <li>Tableau & Power BI – Udemy, Praggmatic</li>
-        <li>Pandas & Python – Udemy</li>
-        <li>Advanced SQL – Udemy, HackerRank</li>
-        <li>LeetCode SQL (50+ problems)</li>
-        <li>Learning: Azure Databricks, Alteryx</li>
+        <li>Amazon QuickSight (Udemy)</li>
+        <li>Advanced SQL – HackerRank</li>
       </ul>
-    </div>
-  </section>
+    </section>
 
-  <section id="personas">
-  <h2>Who Should Hire Me?</h2>
+    <section id="involvement">
+      <h2>Involvement</h2>
+      <p><strong>DataUplift – SQL Education Initiative</strong><br>
+      <em>LinkedIn • January 2025 - Present</em><br>
+      • Founded a knowledge-sharing series on LinkedIn for Advanced SQL concepts.<br>
+      • Created 50+ posts on best practices, real-world queries, and performance techniques.<br>
+      • Built a community of 800+ engaged professionals in the data space.</p>
+    </section>
 
-  <div class="project">
-    <h3>🔹 If You're a Hiring Manager</h3>
-    <p>
-      You need someone who can turn real business problems into data-driven actions. I’ve built fraud detection pipelines, optimized pricing dashboards, and automated quality checks—saving time, reducing risk, and improving decision-making.
-    </p>
-  </div>
-
-  <div class="project">
-    <h3>🔹 If You're a Recruiter</h3>
-    <p>
-      I’m interview-ready with a strong resume, multiple certifications, hands-on projects, and SQL expertise across MySQL, PostgreSQL, Oracle, and SQL Server. I respond fast and come prepared with proof of work and a public portfolio.
-    </p>
-  </div>
-
-  <div class="project">
-    <h3>🔹 If You're a Startup Founder</h3>
-    <p>
-      I’m a data generalist who can do it all—analyze trends, build dashboards, clean datasets, and automate operations. I move fast, adapt quickly, and bring clarity through simple, reliable data insights that drive product growth and retention.
-    </p>
-  </div>
-
-</section>
-
-
-  <section id="resume" class="resume">
-    <h2>Resume</h2>
-    <p>Click below to download my resume:</p>
-     <a class="button-light" href="PREM%20M%20Data%20Scientist.pdf" download>📄 Download Resume</a>
-  </section>
-
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p><span class="icon-link"><i class="fas fa-envelope"></i></span> <a href="mailto:premmurugan32@gmail.com">premmurugan32@gmail.com</a></p>
-    <p><span class="icon-link"><i class="fas fa-phone"></i></span> <a href="tel:+917539909156">+91 75399 09156</a></p>
-    <p><span class="icon-link"><i class="fab fa-github"></i></span> <a href="https://github.com/PremM2" target="_blank">GitHub</a></p>
-    <p><span class="icon-link"><i class="fab fa-linkedin"></i></span> <a href="https://www.linkedin.com/in/premmurugann" target="_blank">LinkedIn</a></p>
-    <p><span class="icon-link"><i class="fas fa-map-marker-alt"></i></span> Salem, Tamil Nadu, India</p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Prem M. All rights reserved.</p>
-  </footer>
-
-<!-- Chatbot UI -->
-<div id="chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 360px; max-height: 450px; background: white; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); font-family: 'Inter', sans-serif; display: flex; flex-direction: column; z-index: 9999;">
-  <div id="chat-header" style="background: #6366f1; color: white; padding: 14px 16px; font-weight: 600; border-radius: 12px 12px 0 0; font-size: 16px;">
-    Prem's Assistant
-  </div>
-  <div id="chat-messages" style="flex: 1; padding: 12px 16px; overflow-y: auto; font-size: 14px; color: #222;"></div>
-  <form id="chat-form" style="display: flex; border-top: 1px solid #ddd;">
-    <input type="text" id="chat-input" placeholder="Ask about Prem's skills, projects, experience..." style="flex: 1; padding: 12px 14px; border:none; outline:none; font-size: 14px; border-radius: 0 0 0 12px;" autocomplete="off" />
-    <button type="submit" style="background: #6366f1; color: white; border: none; padding: 0 18px; cursor: pointer; font-weight: 600; border-radius: 0 0 12px 0;">Send</button>
-  </form>
-</div>
-
-<script>
-  (function() {
-    const chatForm = document.getElementById('chat-form');
-    const chatInput = document.getElementById('chat-input');
-    const chatMessages = document.getElementById('chat-messages');
-
-    // Expanded knowledge base for hiring manager style questions
-    const knowledgeBase = [
-      {
-        keywords: ['skill', 'technology', 'tech stack', 'tools', 'languages', 'software', 'programming'],
-        answer: "Prem is skilled in SQL, Python, Power BI, Tableau, machine learning, data visualization, and ETL pipelines. He is proficient with tools such as Git, GitHub, Jupyter, Pandas, and NumPy."
-      },
-       {
-        keywords: ['hi', 'hello'],
-        answer: "Appreciate your interest in Prem’s profile. Let me know how I can help."
-      },
-      {
-  keywords: ['resume', 'cv', 'download', 'get resume'],
-  answer: "Prem's resume is available for download here: [📄 Click to Download](PREM%20M%20Data%20Scientist.pdf)"
-},
-  {
-        keywords: ['how are you', 'how is life'],
-        answer: "All good on my end—how are things with you?."
-      },
-       {
-        keywords: ['great', 'good','doing good'],
-        answer: "That sounds great"
-      },
-        {
-        keywords: ['bad', ' not good','ok','not well','not'],
-        answer: "That sounds tough. Take care of yourself"
-      },
-      {
-        keywords: ['experience', 'background', 'work', 'years', 'professional history'],
-        answer: "Prem has 2 years of professional experience working as a Business Analyst, with a focus on data-driven fraud detection, dashboard creation, and automating reporting processes."
-      },
-      {
-        keywords: ['project', 'projects', 'work sample', 'portfolio', 'case study', 'demo'],
-        answer: "Prem has successfully executed projects like an Automated Data Quality Monitoring System using SQL, Revenue Strategy Dashboards for Uber, Flipkart Fashion Discount Analysis, and a Seller Fraud Detection Pipeline."
-      },
-      {
-        keywords: ['education', 'degree', 'qualification', 'university', 'academics'],
-        answer: "Prem holds a Bachelor of Science degree in Agriculture from Karunya University, graduating in 2021."
-      },
-      {
-        keywords: ['contact', 'email', 'phone', 'linkedin', 'github', 'reach out'],
-        answer: "You can contact Prem at premmurugan32@gmail.com or by phone at +91 75399 09156. His LinkedIn and GitHub profiles are linked in his portfolio website."
-      },
-      {
-        keywords: ['strength', 'strengths', 'strength areas', 'qualities', 'attributes'],
-        answer: "Prem is recognized for his analytical mindset, problem-solving skills, attention to detail, and ability to translate complex data into actionable business insights."
-      },
-      {
-        keywords: ['certification', 'certificate', 'course', 'training', 'qualification'],
-        answer: "Prem holds certifications including a Business Analyst certification from UpGrad, Google Advanced Data Analytics, Advanced SQL certification, and has completed multiple courses on Tableau, Power BI, MySQL, and Python."
-      },
-      {
-        keywords: ['fraud', 'fraud detection', 'risk', 'risk management', 'anti-fraud'],
-        answer: "Prem developed a real-time Seller Fraud Detection Pipeline that decreased revenue fraud risk by ₹17 Lakhs and accelerated investigation time by 50%."
-      },
-      {
-        keywords: ['automation', 'automate', 'automation'],
-        answer: "Prem has automated data quality monitoring and reporting processes, which improved efficiency and reduced manual errors."
-      },
-      {
-        keywords: ['team', 'collaboration', 'stakeholders', 'communication', 'work with others'],
-        answer: "Prem effectively collaborates with cross-functional teams and stakeholders, ensuring smooth communication and delivering data insights aligned with business goals."
-      },
-      {
-        keywords: ['leadership', 'lead', 'manage', 'handle', 'mentor'],
-        answer: "While Prem primarily works as an individual contributor, he takes initiative in mentoring juniors and driving project ownership."
-      },
-      {
-        keywords: ['challenges', 'problems', 'difficulties', 'obstacles'],
-        answer: "Prem tackles challenges by applying structured problem-solving techniques and leveraging data to guide decision-making and risk mitigation."
-      },
-      {
-        keywords: ['communication', 'present', 'report', 'dashboard', 'visualization'],
-        answer: "Prem excels at creating intuitive dashboards and reports using Tableau and Power BI, making complex data easy to understand for business teams."
-      },
-      {
-        keywords: ['improvement', 'impact', 'result', 'achievement', 'success'],
-        answer: "Prem's work has led to significant improvements in fraud detection speed, accuracy of data reports, and operational efficiencies, directly impacting revenue protection."
-      },
-      {
-        keywords: ['salary', 'expected compensation', 'pay', 'package'],
-        answer: "Prem is seeking a competitive salary in line with market standards and his experience, typically starting around 9.3 LPA."
-      },
-      {
-        keywords: ['resume', 'cv', 'download', 'get resume'],
-        answer: "Prem's resume is available for download from the portfolio website under the 'Resume' section."
-      },
-      {
-        keywords: ['work environment', 'culture', 'fit', 'values'],
-        answer: "Prem values a collaborative, data-driven work culture that encourages continuous learning and innovation."
-      },
-      {
-        keywords: ['languages', 'spoken', 'communication skills'],
-        answer: "Prem is fluent in English and Tamil, and has basic conversational skills in Telugu."
-      },
-      {
-        keywords: ['hobbies', 'interests', 'extra-curricular'],
-        answer: "Prem enjoys problem-solving, data storytelling, and continuously upgrading his technical skills through courses and projects."
-      },
-      {
-        keywords: ['availability', 'join', 'notice period', 'start date'],
-        answer: "Prem is available to join immediately or with a short notice period, depending on the employer's requirements."
-      },
-         {
-        keywords: ['catch later', 'cu', 'see you', 'bye'],
-        answer: "Thanks for stopping by! Prem’s assistant signing off. Hope you connect with Prem soon."
-      },
-               {
-        keywords: ['about', 'say', 'tell about prem', 'who is prem','prem'],
-        answer: "Prem is a motivated and detail-oriented professional with strong skills in data analysis, business intelligence, and process optimization. With experience in roles related to analytics and operations, he is passionate about leveraging data to drive smart decisions and improve business outcomes. Prem is known for his persistence, adaptability, and collaborative approach, always aiming to deliver quality results while learning new things along the way. If you’re looking for someone who combines technical expertise with a practical mindset, Prem is a great person to connect with."
-      },
-      {
-        keywords: ['help', 'support', 'what can you do', 'assist'],
-        answer: "I am Prem's assistant bot! Ask me anything about his skills, experience, projects, certifications, or contact information."
-      }
-    ];
-
-    function addMessage(text, fromUser = true) {
-      const msgDiv = document.createElement('div');
-      msgDiv.style.marginBottom = '12px';
-      msgDiv.style.textAlign = fromUser ? 'right' : 'left';
-      msgDiv.style.fontWeight = fromUser ? '600' : '400';
-      msgDiv.style.color = fromUser ? '#6366f1' : '#222';
-      msgDiv.style.wordWrap = 'break-word';
-      msgDiv.textContent = text;
-      chatMessages.appendChild(msgDiv);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    function findAnswer(question) {
-      const q = question.toLowerCase();
-      for (const item of knowledgeBase) {
-        for (const keyword of item.keywords) {
-          if (q.includes(keyword)) {
-            return item.answer;
-          }
-        }
-      }
-      return "Sorry, I don't have information on that topic yet. Please ask about Prem's skills, projects, experience, or contact details.";
-    }
-
-    chatForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const userInput = chatInput.value.trim();
-      if (!userInput) return;
-
-      addMessage(userInput, true); // User message
-
-      const botReply = findAnswer(userInput);
-      setTimeout(() => addMessage(botReply, false), 600); // Bot reply with slight delay
-
-      chatInput.value = '';
-    });
-
-  })();
-</script>
-
-
-
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:premmurugan32@gmail.com">premmurugan32@gmail.com</a></p>
+      <p>Phone: <a href="tel:+917539909156">+91 75399 09156</a></p>
+      <p>GitHub: <a href="https://github.com/PremM2" target="_blank">PremM2</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/premmurugann" target="_blank">premmurugann</a></p>
+    </section>
+  </main>
 </body>
 </html>
